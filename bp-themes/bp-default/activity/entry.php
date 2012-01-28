@@ -28,7 +28,7 @@
 		<div class="activity-header">
 
 			<?php bp_activity_action(); ?>
-
+            
 		</div>
 
 		<?php if ( 'activity_comment' == bp_get_activity_type() ) : ?>
@@ -78,12 +78,34 @@
 				<?php if ( bp_activity_user_can_delete() ) bp_activity_delete_link(); ?>
 
 				<?php do_action( 'bp_activity_entry_meta' ); ?>
+  
 
-			</div>
+<a href="<?php bp_activity_thread_permalink() ?>" title="view" name="view" value="view">View</a>
+		</div>
 
 		<?php endif; ?>
 
 	</div>
+	<div class="sharebutton">
+		<span class="fb">
+<iframe src="//www.facebook.com/plugins/like.php?href=<?php bp_activity_thread_permalink() ?>&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21"scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe></span>
+
+		<span class="tw">
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></span>
+
+	</div>
+
+	<style type="text/css">
+div.sharebutton {
+  float: right;
+}
+
+span.tw {
+  position: relative;
+  bottom: 1px;
+}
+</style>
 
 	<?php do_action( 'bp_before_activity_entry_comments' ); ?>
 
@@ -119,6 +141,8 @@
 
 	<?php do_action( 'bp_after_activity_entry_comments' ); ?>
 
+
 </li>
+
 
 <?php do_action( 'bp_after_activity_entry' ); ?>
