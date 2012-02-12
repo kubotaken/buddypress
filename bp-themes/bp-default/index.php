@@ -1,4 +1,4 @@
-<?php get_header() ?>
+<?php global $wpdb;$bp; if(is_user_logged_in()) wp_redirect( $bp->loggedin_user->domain ); get_header()?>
 
 	<div id="content">
 		<div class="padder">
